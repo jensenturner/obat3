@@ -1,0 +1,56 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for route {{route_info.id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row">{{route_info.number}}</td>
+            <td>{{route_info.description}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Assignment history for {{route_info.id}} on {{date}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fleet #</th>
+          <th>Headsign</th>
+          <th>Start Time</th>
+          <th>Fleet Name</th>
+          <th>Engine</th>
+          <th>Transmission</th>
+          <th>Livery</th>
+          <th>Trip ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each vehicles}}
+          <tr>
+            <th scope="row">{{fleet_number}}</td>
+            <td>{{headsign}}</td>
+            <td>{{start_time}}</td>
+            <td>{{fleet_name}}</td>
+            <td>{{engine}}</td>
+            <td>{{transmission}}</td>
+            <td>{{livery}}</td>
+            <td>{{trip_id}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

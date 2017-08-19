@@ -1,0 +1,15 @@
+[Unit]
+Description=OBAT Daemon Service v1
+
+[Service]
+ExecStart=/usr/bin/node /var/obat/d3t.js
+Restart=always
+RestartSec = 17
+User=jturner
+Group=midvale
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/var/obat
+
+[Install]
+WantedBy=multi-user.target

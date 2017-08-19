@@ -1,0 +1,55 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for vehicle {{vehicle_info.id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Fleet Number</th>
+          <th>Fleet</th>
+          <th>Engine</th>
+          <th>Transmission</th>
+          <th>Livery</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row">{{vehicle_info.fleet_number}}</td>
+            <td>{{vehicle_info.fleet_name}}</td>
+            <td>{{vehicle_info.engine}}</td>
+            <td>{{vehicle_info.transmission}}</td>
+            <td>{{vehicle_info.livery}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Assignment history for vehicle {{vehicle_info.id}} on {{date}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Headsign</th>
+          <th>Trip ID</th>
+          <th>Start Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each updates}}
+          <tr>
+            <th scope="row">{{number}}</td>
+            <td>{{headsign}}</td>
+            <td>{{trip_id}}</td>
+            <td>{{start_time}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

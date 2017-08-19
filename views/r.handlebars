@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Performance for trip {{trip_id}} in {{month}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date/Time</th>
+          <th>Schedule Deviation</th>
+          <th>Vehicle</th>
+          <th>Fleet</th>
+          <th>Engine</th>
+          <th>Transmission</th>
+          <th>Livery</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each updates}}
+          <tr>
+            <td>{{time}}</td>
+            <th scope="row">{{schedule_deviation}} min</td>
+            <td>{{fleet_number}}</td>
+            <td>{{fleet_name}}</td>
+            <td>{{engine}}</td>
+            <td>{{transmission}}</td>
+            <td>{{livery}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
