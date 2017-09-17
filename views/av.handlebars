@@ -26,9 +26,10 @@
   </div>
 </div>
 
+{{#each updates}}
 <div class="panel panel-primary">
   <div class="panel-heading">
-    Assignment history for vehicle {{vehicle_info.id}} on {{date}}
+    Assignment history for vehicle {{../vehicle_info.id}} on {{@key}}
   </div>
   <div class="panel-body">
     <table class="table">
@@ -41,7 +42,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each updates}}
+        {{#each this}}
           <tr>
             <th scope="row">{{number}}</td>
             <td>{{headsign}}</td>
@@ -53,3 +54,4 @@
     </table>
   </div>
 </div>
+{{/each}}

@@ -1,0 +1,115 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for route {{route_info.id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th scope="row">{{route_info.number}}</td>
+            <td>{{route_info.description}}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for block {{block_info.[0].block_id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Trip ID</th>
+          <th>Route</th>
+          <th>Headsign</th>
+          <th>Start Time</th>
+          <th>Shape ID</th>
+          <th>Service ID</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each block_info}}
+            <tr>
+              <td>{{trip_id}}</td>
+              <th scope="row">{{route_number}}</th>
+              <td>{{headsign}}</td>
+              <td>Coming Soon</td>
+              <td>{{shape_id}}</td>
+              <td>{{service_id}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Vehicles signed into trip {{trip_id}} on {{date}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fleet Number</th>
+          <th>Fleet</th>
+          <th>Engine</th>
+          <th>Transmission</th>
+          <th>Livery</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each vehicle_info}}
+            <tr>
+              <td>{{id}}</td>
+              <th scope="row">{{fleet_number}}</th>
+              <td>{{fleet_name}}</td>
+              <td>{{engine}}</td>
+              <td>{{transmission}}</td>
+              <td>{{livery}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{#each performance_info}}
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Stops served by vehicle {{@key}} for trip {{../trip_id}} on {{../date}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Stop Code</th>
+          <th>Description</th>
+          <th>Schedule Deviation</th>
+          <th>Closest Update Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each this}}
+            <tr>
+              <th scope="row">{{stop_code}}</th>
+              <td>{{stop_description}}</td>
+              <td>{{schedule_deviation}} min</td>
+              <td>{{time}}</td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{/each}}

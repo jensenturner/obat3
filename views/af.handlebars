@@ -1,0 +1,81 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for fleet {{fleet_info.fleet_id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Coach Type</th>
+          <th>Engine</th>
+          <th>Transmission</th>
+          <th>Fleet Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">{{fleet_info.name}}</td>
+          <td>{{fleet_info.engine}}</td>
+          <td>{{fleet_info.transmission}}</td>
+          <td>{{fleet_info.fleet_size}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Info for vehicles in fleet {{fleet_info.fleet_id}}
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>OBA ID</th>
+          <th>Fleet Number</th>
+          <th>Livery</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each vehicle_info}}
+        <tr>
+          <th scope="row">{{vehicle_id}}</td>
+          <td>{{fleet_number}}</td>
+          <td>{{livery}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{{#each vehicle_updates}}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      Assignment history for vehicle {{@key}} on {{../date}}
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Headsign</th>
+            <th>Trip ID</th>
+            <th>Start Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this}}
+            <tr>
+              <th scope="row">{{number}}</td>
+              <td>{{headsign}}</td>
+              <td>{{trip_id}}</td>
+              <td>{{start_time}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/each}}

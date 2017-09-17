@@ -1,170 +1,300 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary"> <!-- REAL-TIME PERFORMANCE -->
   <div class="panel-heading">
-    Performance by route/stop/trip/date
+    <h4>REAL-TIME PERFORMANCE</h4>
   </div>
   <div class="panel-body">
-    <form class="form-horizontal" action="/r" method="GET">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Agency
-        </label>
-        <div class="col-sm-10">
-          <select name="agency_id" class="form-control" id="r_agency_id">
-            <option value="0" selected disabled>Select...</option>
-            {{#each agencies}}
-              <option value="{{id}}">{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Route
-        </label>
-        <div class="col-sm-10">
-          <select name="route_id" class="form-control" id="r_route_id" disabled>
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Stop
-        </label>
-        <div class="col-sm-10">
-          <select name="stop_id" class="form-control" id="r_stop_id" disabled="disabled">
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Scheduled Departure
-        </label>
-        <div class="col-sm-10">
-          <select name="trip_id" class="form-control" id="r_trip_id" disabled="disabled">
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Month
-        </label>
-        <div class="col-sm-10">
-          <div class="input-group date month-only">
-            <input type="text" class="form-control" name="month" />
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+    <div class="col-md-6">
+      <form class="form-horizontal" action="/rs" method="GET">
+        <p>
+          <strong style="">Data for one trip passing through one stop over one month</strong>
+          <br/>
+          <em>How late was my bus trip at my stop during the last month?</em>
+        </p>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Agency
+          </label>
+          <div class="col-sm-10">
+            <select name="agency_id" class="form-control" id="rs_agency_id">
+              <option value="0" selected disabled>Select...</option>
+              {{#each agencies}}
+                <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
           </div>
         </div>
-      </div>
-        <input type="submit" class="btn btn-primary pull-right" value="Go!"/>
-    </form>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Route
+          </label>
+          <div class="col-sm-10">
+            <select name="route_id" class="form-control" id="rs_route_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Stop
+          </label>
+          <div class="col-sm-10">
+            <select name="stop_id" class="form-control" id="rs_stop_id" disabled="disabled">
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Time
+          </label>
+          <div class="col-sm-10">
+            <select name="trip_id" class="form-control" id="rs_trip_id" disabled="disabled">
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Month
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group date month-only">
+              <input type="text" class="form-control" name="month" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary pull-right" value="Go!"/></div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <form class="form-horizontal" action="/rt" method="GET">
+        <p>
+          <strong style="">Data for one trip passing through all stops over one day</strong>
+          <br/>
+          <em>Where does my bus trip lose time?</em>
+        </p>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Agency
+          </label>
+          <div class="col-sm-10">
+            <select name="agency_id" class="form-control" id="rt_agency_id">
+              <option value="0" selected disabled>Select...</option>
+              {{#each agencies}}
+                <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Route
+          </label>
+          <div class="col-sm-10">
+            <select name="route_id" class="form-control" id="rt_route_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Stop
+          </label>
+          <div class="col-sm-10">
+            <select name="stop_id" class="form-control" id="rt_stop_id" disabled="disabled">
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Time
+          </label>
+          <div class="col-sm-10">
+            <select name="trip_id" class="form-control" id="rt_trip_id" disabled="disabled">
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Month
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group date date-only">
+              <input type="text" class="form-control" name="month" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary pull-right" value="Go!"/></div>
+      </form>
+    </div>
   </div>
-</div>
+</div><!-- /REAL-TIME PERFORMANCE -->
 
-<div class="panel panel-primary">
+<div class="panel panel-primary"> <!-- VEHICLE ASSIGNMENT -->
   <div class="panel-heading">
-    Assignment history by route/date
+    <h4>VEHICLE ASSIGNMENT</h4>
   </div>
   <div class="panel-body">
-    <form class="form-horizontal" action="/ar" method="GET">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Agency
-        </label>
-        <div class="col-sm-10">
-          <select name="agency_id" class="form-control" id="ar_agency_id">
-            <option value="0" selected disabled>Select...</option>
-            {{#each agencies}}
-              <option value="{{id}}">{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Route
-        </label>
-        <div class="col-sm-10">
-          <select name="route_id" class="form-control" required="required" id="ar_route_id" disabled>
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Date
-        </label>
-        <div class="col-sm-10">
-          <div class="input-group date date-only">
-            <input type='text' class="form-control" name="date"/>
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+    <div class="row">
+    <div class="col-md-6">
+      <form class="form-horizontal" action="/ar" method="GET">
+        <p>
+          <strong style="">Data for all trips of one route on one date</strong>
+          <br/>
+          <em>What coaches ran my route today?</em>
+        </p>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Agency
+          </label>
+          <div class="col-sm-10">
+            <select name="agency_id" class="form-control" id="ar_agency_id">
+              <option value="0" selected disabled>Select...</option>
+              {{#each agencies}}
+                <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
           </div>
         </div>
-      </div>
-        <input type="submit" class="btn btn-primary pull-right" value="Go!"/>
-    </form>
-  </div>
-</div>
-
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    Assignment history by vehicle/date
-  </div>
-  <div class="panel-body">
-    <form class="form-horizontal" action="/av" method="GET">
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Agency
-        </label>
-        <div class="col-sm-10">
-          <select name="agency_id" class="form-control" id="av_agency_id">
-            <option value="0" selected disabled>Select...</option>
-            {{#each agencies}}
-              <option value="{{id}}">{{name}}</option>
-            {{/each}}
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Fleet
-        </label>
-        <div class="col-sm-10">
-          <select name="fleet_id" class="form-control" id="av_fleet_id" disabled>
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Vehicle
-        </label>
-        <div class="col-sm-10">
-          <select name="vehicle_id" class="form-control" id="av_vehicle_id" disabled>
-            <option value="0" selected disabled>Select...</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">
-          Date
-        </label>
-        <div class="col-sm-10">
-          <div class="input-group date date-only">
-            <input type='text' class="form-control" name="date" />
-            <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </span>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Route
+          </label>
+          <div class="col-sm-10">
+            <select name="route_id" class="form-control" required="required" id="ar_route_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
           </div>
         </div>
-      </div>
-        <input type="submit" class="btn btn-primary pull-right" value="Go!"/>
-    </form>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Date
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group date date-only">
+              <input type='text' class="form-control" name="date"/>
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary pull-right" value="Go!"/></div>
+      </form>
+    </div>
+    <div class="col-md-6"> <h3> Assignment by trip/month coming soon! </h3> </div>
   </div>
-</div>
+  <div class="row">
+    <div class="col-md-6">
+      <form class="form-horizontal" action="/av" method="GET">
+        <p>
+          <strong style="">Data for one vehicle over one month</strong>
+          <br/>
+          <em>What trips has a particular coach been assigned to recently?</em>
+        </p>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Agency
+          </label>
+          <div class="col-sm-10">
+            <select name="agency_id" class="form-control" id="av_agency_id">
+              <option value="0" selected disabled>Select...</option>
+              {{#each agencies}}
+                <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Fleet
+          </label>
+          <div class="col-sm-10">
+            <select name="fleet_id" class="form-control" id="av_fleet_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Vehicle
+          </label>
+          <div class="col-sm-10">
+            <select name="vehicle_id" class="form-control" id="av_vehicle_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Month
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group date month-only">
+              <input type='text' class="form-control" name="date" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary pull-right" value="Go!"/></div>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <form class="form-horizontal" action="/af" method="GET">
+        <p>
+          <strong style="">Data for one fleet of coaches over one day</strong>
+          <br/>
+          <em>Which routes does a particular type of coach run?</em>
+        </p>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Agency
+          </label>
+          <div class="col-sm-10">
+            <select name="agency_id" class="form-control" id="af_agency_id">
+              <option value="0" selected disabled>Select...</option>
+              {{#each agencies}}
+                <option value="{{id}}">{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Fleet
+          </label>
+          <div class="col-sm-10">
+            <select name="fleet_id" class="form-control" id="af_fleet_id" disabled>
+              <option value="0" selected disabled>Select...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">
+            Date
+          </label>
+          <div class="col-sm-10">
+            <div class="input-group date date-only">
+              <input type='text' class="form-control" name="date" />
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+        </div>
+          <div class="form-group"><input type="submit" class="btn btn-primary pull-right" value="Go!"/></div>
+      </form>
+    </div>
+    </div>
+  </div> <!-- /panel_body -->
+</div> <!-- /panel -->
